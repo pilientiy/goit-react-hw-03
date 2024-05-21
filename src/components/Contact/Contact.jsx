@@ -1,29 +1,22 @@
-import classes from './Contact.module.css';
-import { BsFillPersonFill, BsTelephoneFill } from 'react-icons/bs';
-import PropTypes from 'prop-types';
-import CustomButton from '../CustomButton/CustomButton';
+import { FaUser, FaPhone } from "react-icons/fa6";
+import css from "./Contact.module.css";
 
-const Contact = ({ name, number }) => {
+function Contact({ contact, onDelete }) {
   return (
-    <>
-      <div className={classes.contactInfo}>
-        <div>
-          <BsFillPersonFill />
-          <span>{name}</span>
-        </div>
-        <div>
-          <BsTelephoneFill />
-          <span>{number}</span>
-        </div>
+    <div className={css["contact-wrapper"]}>
+      <div className={css["contact-info"]}>
+          <p className={css["contact-text"]}>
+            <FaUser className={css.icon} />
+            {contact.name}
+          </p>
+          <p className={css["contact-text"]}>
+            <FaPhone className={css.icon} />
+            {contact.number}
+          </p>
       </div>
-      <CustomButton buttonText={'Delete'} />
-    </>
+      <button onClick={()=> onDelete(contact.id)}>Delete</button>
+    </div>
   );
-};
+}
 
 export default Contact;
-
-Contact.propTypes = {
-  name: PropTypes.string.isRequired,
-  number: PropTypes.string.isRequired,
-};

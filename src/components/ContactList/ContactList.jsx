@@ -1,23 +1,16 @@
-import Contact from '../Contact/Contact';
-import classes from './ContactList.module.css';
-import PropTypes from 'prop-types';
+import css from "./ContactList.module.css";
 
-const ContactList = ({ contacts }) => {
-  return (
-    <ul className={classes.contactList}>
-      {contacts.map(({ id, ...otherProps }) => {
-        return (
-          <li className={classes.contact} key={id}>
-            <Contact {...otherProps} />
-          </li>
-        );
-      })}
-    </ul>
-  );
-};
+import Contact from "../Contact/Contact"
 
-export default ContactList;
 
-ContactList.propTypes = {
-  contacts: PropTypes.array.isRequired,
-};
+function ContactList({contacts, onDelete}){
+    return(
+        <ul className={css["contact-list"]}>
+            {
+                contacts.map((contact) => <li key = {contact.id} > <Contact contact = {contact} onDelete={onDelete}/> </li>)
+            }
+        </ul>
+    )
+}
+
+export default ContactList

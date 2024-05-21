@@ -1,17 +1,7 @@
-.contactList {
+.contact-list{
     display: flex;
     flex-direction: column;
-    row-gap: 20px;
-    padding-left: 0;
-    flex-wrap: wrap;
-}
+    gap: 16px;
 
-.contact {
-    display: flex;
     width: 250px;
-    padding: 20px;
-    justify-content: space-between;
-    align-items: center;
-    border: 2px solid #000;
-    border-radius: 8px;
 }
